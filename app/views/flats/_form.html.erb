@@ -1,0 +1,51 @@
+<%= simple_form_for @flat do |form| %>
+  <!-- Flat Name -->
+  <div class="form-group">
+    <%= form.label :name, "Flat Name" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Enter the flat's name" %>
+  </div>
+
+  <!-- Flat Address -->
+  <div class="form-group">
+    <%= form.label :address, "Address" %>
+    <%= form.text_field :address, class: "form-control", placeholder: "Enter the flat's address" %>
+  </div>
+
+  <!-- Flat Description -->
+  <div class="form-group">
+    <%= form.label :description, "Description" %>
+    <%= form.text_area :description, class: "form-control", rows: 3, placeholder: "Describe the flat" %>
+  </div>
+
+  <!-- Price per Night -->
+  <div class="form-group">
+    <%= form.label :price_per_night, "Price per Night" %>
+    <%= form.number_field :price_per_night, class: "form-control", min: 1, placeholder: "Enter the price per night" %>
+  </div>
+
+  <!-- Number of Guests -->
+  <div class="form-group">
+    <%= form.label :number_of_guests, "Number of Guests" %>
+    <%= form.number_field :number_of_guests, class: "form-control", min: 1, placeholder: "Enter the maximum number of guests" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :picture_url, "Picture URL" %>
+    <%= form.text_field :picture_url, class: "form-control", placeholder: "Enter image URL" %>
+  </div>
+
+  <!-- Display Errors -->
+  <% if @flat.errors.any? %>
+    <div class="alert alert-danger mt-2">
+      <h5>There were errors with your submission:</h5>
+      <ul>
+        <% @flat.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- Submit Button -->
+  <%= form.submit "Done", class: "btn btn-success mt-2" %>
+<% end %>

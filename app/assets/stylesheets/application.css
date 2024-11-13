@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ .card-body i {
+  margin-right: 8px;
+  color: #007bff; /* This makes the icons blue like the button */
+}
